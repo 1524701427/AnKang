@@ -7,6 +7,12 @@
       }
     },
     {
+      "path": "pages/register/index",
+      "style": {
+        "navigationBarTitleText": "注册账号"
+      }
+    },
+    {
       "path": "pages/elder/index",
       "style": {
         "navigationStyle": "custom"
@@ -59,25 +65,25 @@
       "style": {
         "navigationBarTitleText": "照护任务"
       }
-	},
-	{
-	  "path": "pages/family/mall/index",
-	  "style": {
-	    "navigationStyle": "custom"
-	  }
-	},
-	{
-	  "path": "pages/family/service-detail/index",
-	  "style": {
-	    "navigationStyle": "custom"
-	  }
-	},
-	{
-	  "path": "pages/family/institution/index",
-	  "style": {
-	    "navigationStyle": "custom"
-	  }
-	}
+    },
+    {
+      "path": "pages/family/mall/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/service-detail/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/institution/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    }
   ],
   "globalStyle": {
     "backgroundColor": "#f6f7f3",
