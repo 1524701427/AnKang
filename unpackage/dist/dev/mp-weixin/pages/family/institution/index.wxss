@@ -1,0 +1,248 @@
+.page.data-v-21b4e0a6 {
+
+  min-height: 100vh;
+
+  padding:
+    0
+    28rpx
+    60rpx;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8f8f4,
+      #f3f3ee
+    );
+}
+.hero.data-v-21b4e0a6 {
+
+  margin:
+    48rpx
+    6rpx
+    28rpx;
+}
+.eyebrow.data-v-21b4e0a6 {
+
+  display: block;
+
+  font-size: 22rpx;
+
+  letter-spacing: 2rpx;
+
+  color: #87918a;
+}
+.hero-title.data-v-21b4e0a6 {
+
+  display: block;
+
+  margin-top: 10rpx;
+
+  font-size: 43rpx;
+
+  line-height: 1.35;
+
+  font-weight: 900;
+
+  color: #263a30;
+}
+.hero-desc.data-v-21b4e0a6 {
+
+  display: block;
+
+  margin-top: 14rpx;
+
+  font-size: 23rpx;
+
+  line-height: 1.7;
+
+  color: #7a857e;
+}
+
+
+/* 筛选 */
+.filter-row.data-v-21b4e0a6 {
+
+  display: flex;
+
+  gap: 12rpx;
+
+  overflow-x: auto;
+
+  margin-bottom: 20rpx;
+}
+.filter.data-v-21b4e0a6 {
+
+  flex-shrink: 0;
+
+  padding:
+    12rpx
+    18rpx;
+
+  border-radius: 18rpx;
+
+  background: #fff;
+
+  font-size: 20rpx;
+
+  color: #77837b;
+}
+.filter.active.data-v-21b4e0a6 {
+
+  background: #35674f;
+
+  color: #fff;
+}
+
+
+/* 机构 */
+.institution-card.data-v-21b4e0a6 {
+
+  display: flex;
+
+  margin-bottom: 18rpx;
+
+  padding: 22rpx;
+
+  border-radius: 30rpx;
+
+  background: #fff;
+}
+.institution-image.data-v-21b4e0a6 {
+
+  width: 150rpx;
+  height: 170rpx;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 24rpx;
+
+  background:
+    linear-gradient(
+      145deg,
+      #edf3ed,
+      #f8faf6
+    );
+
+  font-size: 62rpx;
+}
+.institution-main.data-v-21b4e0a6 {
+
+  flex: 1;
+
+  margin-left: 20rpx;
+}
+.institution-head.data-v-21b4e0a6 {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+}
+.institution-name.data-v-21b4e0a6 {
+
+  flex: 1;
+
+  font-size: 27rpx;
+
+  font-weight: 900;
+
+  color: #34473d;
+}
+.distance.data-v-21b4e0a6 {
+
+  margin-left: 12rpx;
+
+  font-size: 18rpx;
+
+  color: #949b96;
+}
+.rating.data-v-21b4e0a6 {
+
+  display: flex;
+
+  align-items: center;
+
+  margin-top: 8rpx;
+}
+.score.data-v-21b4e0a6 {
+
+  font-size: 21rpx;
+
+  font-weight: 900;
+
+  color: #bd7d46;
+}
+.rating-text.data-v-21b4e0a6 {
+
+  margin-left: 5rpx;
+
+  font-size: 18rpx;
+
+  color: #8b938e;
+}
+.institution-desc.data-v-21b4e0a6 {
+
+  display: block;
+
+  margin-top: 9rpx;
+
+  font-size: 19rpx;
+
+  line-height: 1.55;
+
+  color: #7f8982;
+}
+.tags.data-v-21b4e0a6 {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8rpx;
+
+  margin-top: 10rpx;
+}
+.tag.data-v-21b4e0a6 {
+
+  padding:
+    4rpx
+    9rpx;
+
+  border-radius: 10rpx;
+
+  background: #f1f4ef;
+
+  font-size: 16rpx;
+
+  color: #63766a;
+}
+.institution-bottom.data-v-21b4e0a6 {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 13rpx;
+}
+.price.data-v-21b4e0a6 {
+
+  font-size: 23rpx;
+
+  font-weight: 900;
+
+  color: #9c6945;
+}
+.beds.data-v-21b4e0a6 {
+
+  font-size: 17rpx;
+
+  color: #5d8069;
+}

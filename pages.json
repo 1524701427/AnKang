@@ -1,0 +1,87 @@
+{
+  "pages": [
+    {
+      "path": "pages/entry/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/elder/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/home/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/health/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/care/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/services/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/mine/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/family/reminder-edit/index",
+      "style": {
+        "navigationBarTitleText": "提醒设置"
+      }
+    },
+    {
+      "path": "pages/family/member/index",
+      "style": {
+        "navigationBarTitleText": "家庭成员"
+      }
+    },
+    {
+      "path": "pages/family/task/index",
+      "style": {
+        "navigationBarTitleText": "照护任务"
+      }
+	},
+	{
+	  "path": "pages/family/mall/index",
+	  "style": {
+	    "navigationStyle": "custom"
+	  }
+	},
+	{
+	  "path": "pages/family/service-detail/index",
+	  "style": {
+	    "navigationStyle": "custom"
+	  }
+	},
+	{
+	  "path": "pages/family/institution/index",
+	  "style": {
+	    "navigationStyle": "custom"
+	  }
+	}
+  ],
+  "globalStyle": {
+    "backgroundColor": "#f6f7f3",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#f6f7f3"
+  }
+}

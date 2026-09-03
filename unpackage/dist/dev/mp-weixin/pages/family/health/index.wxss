@@ -1,0 +1,573 @@
+.page.data-v-d1474354 {
+
+  min-height: 100vh;
+
+  padding:
+    0
+    28rpx
+    180rpx;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(235, 240, 234, .95),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #f8f8f4,
+      #f3f3ee
+    );
+}
+.hero.data-v-d1474354 {
+
+  margin:
+    48rpx
+    6rpx
+    30rpx;
+}
+.eyebrow.data-v-d1474354,
+.section-eyebrow.data-v-d1474354 {
+
+  display: block;
+
+  font-size: 22rpx;
+
+  letter-spacing: 2rpx;
+
+  color: #87918a;
+}
+.hero-title.data-v-d1474354 {
+
+  display: block;
+
+  margin-top: 10rpx;
+
+  font-size: 46rpx;
+
+  font-weight: 900;
+
+  color: #24392e;
+}
+.hero-desc.data-v-d1474354 {
+
+  display: block;
+
+  margin-top: 15rpx;
+
+  font-size: 23rpx;
+
+  line-height: 1.7;
+
+  color: #79847d;
+}
+
+
+/* 健康总结 */
+.health-summary.data-v-d1474354 {
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 28rpx;
+
+  border-radius: 32rpx;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e9f2e9,
+      #f7faf4
+    );
+
+  border:
+    2rpx solid
+    #dfe9df;
+}
+.summary-icon.data-v-d1474354 {
+
+  width: 86rpx;
+  height: 86rpx;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 26rpx;
+
+  background: rgba(255,255,255,.65);
+
+  font-size: 38rpx;
+}
+.summary-content.data-v-d1474354 {
+
+  flex: 1;
+
+  margin-left: 20rpx;
+}
+.summary-label.data-v-d1474354,
+.summary-title.data-v-d1474354,
+.summary-desc.data-v-d1474354 {
+
+  display: block;
+}
+.summary-label.data-v-d1474354 {
+
+  font-size: 20rpx;
+
+  color: #74837a;
+}
+.summary-title.data-v-d1474354 {
+
+  margin-top: 5rpx;
+
+  font-size: 31rpx;
+
+  font-weight: 900;
+
+  color: #2d4738;
+}
+.summary-desc.data-v-d1474354 {
+
+  margin-top: 5rpx;
+
+  font-size: 21rpx;
+
+  color: #78857d;
+}
+.summary-badge.data-v-d1474354 {
+
+  padding:
+    8rpx
+    16rpx;
+
+  border-radius: 18rpx;
+
+  background: #fff;
+
+  font-size: 20rpx;
+
+  color: #4e775f;
+}
+
+
+/* 标题 */
+.section-head.data-v-d1474354 {
+
+  margin:
+    38rpx
+    5rpx
+    18rpx;
+}
+.section-title.data-v-d1474354 {
+
+  display: block;
+
+  margin-top: 7rpx;
+
+  font-size: 31rpx;
+
+  font-weight: 900;
+
+  color: #293d33;
+}
+
+
+/* 健康指标 */
+.metrics-grid.data-v-d1474354 {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 16rpx;
+}
+.metric-card.data-v-d1474354 {
+
+  padding: 25rpx;
+
+  min-height: 190rpx;
+
+  border-radius: 28rpx;
+
+  background: #fff;
+
+  box-shadow:
+    0 10rpx 34rpx
+    rgba(44,69,55,.05);
+}
+.metric-top.data-v-d1474354 {
+
+  display: flex;
+
+  align-items: center;
+}
+.metric-icon.data-v-d1474354 {
+
+  width: 52rpx;
+  height: 52rpx;
+
+  margin-right: 12rpx;
+
+  border-radius: 17rpx;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 26rpx;
+}
+.pressure.data-v-d1474354 {
+
+  background: #f9ece8;
+}
+.heart.data-v-d1474354 {
+
+  background: #fae9e8;
+
+  color: #b65c55;
+}
+.oxygen.data-v-d1474354 {
+
+  background: #e8f0f5;
+}
+.sleep.data-v-d1474354 {
+
+  background: #eeeafa;
+}
+.metric-name.data-v-d1474354 {
+
+  font-size: 21rpx;
+
+  color: #7d8881;
+}
+.metric-value.data-v-d1474354 {
+
+  display: block;
+
+  margin-top: 20rpx;
+
+  font-size: 32rpx;
+
+  font-weight: 900;
+
+  color: #293d33;
+}
+.metric-status.data-v-d1474354 {
+
+  display: flex;
+
+  align-items: center;
+
+  margin-top: 13rpx;
+
+  font-size: 20rpx;
+
+  color: #65776c;
+}
+.status-dot.data-v-d1474354 {
+
+  width: 10rpx;
+  height: 10rpx;
+
+  margin-right: 8rpx;
+
+  border-radius: 50%;
+
+  background: #599273;
+}
+
+
+/* 趋势 */
+.trend-card.data-v-d1474354,
+.records-card.data-v-d1474354 {
+
+  margin-top: 20rpx;
+
+  padding: 30rpx;
+
+  border-radius: 32rpx;
+
+  background: #fff;
+
+  box-shadow:
+    0 12rpx 38rpx
+    rgba(44,69,55,.05);
+}
+.card-head.data-v-d1474354 {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+.normal-tag.data-v-d1474354 {
+
+  padding:
+    7rpx
+    14rpx;
+
+  border-radius: 15rpx;
+
+  background: #edf3ed;
+
+  font-size: 19rpx;
+
+  color: #53705e;
+}
+.chart-area.data-v-d1474354 {
+
+  height: 300rpx;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 12rpx;
+
+  margin-top: 28rpx;
+}
+.chart-item.data-v-d1474354 {
+
+  flex: 1;
+
+  text-align: center;
+}
+.chart-value.data-v-d1474354 {
+
+  display: block;
+
+  margin-bottom: 8rpx;
+
+  font-size: 18rpx;
+
+  color: #77827b;
+}
+.chart-bar-bg.data-v-d1474354 {
+
+  position: relative;
+
+  height: 190rpx;
+
+  overflow: hidden;
+
+  border-radius: 14rpx;
+
+  background: #f0f2ee;
+}
+.chart-bar.data-v-d1474354 {
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  border-radius:
+    14rpx
+    14rpx
+    0
+    0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #8bad98,
+      #668a76
+    );
+}
+.chart-day.data-v-d1474354 {
+
+  display: block;
+
+  margin-top: 10rpx;
+
+  font-size: 20rpx;
+
+  color: #848d87;
+}
+.chart-note.data-v-d1474354 {
+
+  display: flex;
+
+  align-items: center;
+
+  margin-top: 22rpx;
+
+  padding: 18rpx 20rpx;
+
+  border-radius: 20rpx;
+
+  background: #f6f8f4;
+
+  font-size: 21rpx;
+
+  color: #6f7b73;
+}
+.note-dot.data-v-d1474354 {
+
+  width: 10rpx;
+  height: 10rpx;
+
+  margin-right: 10rpx;
+
+  border-radius: 50%;
+
+  background: #4f8c68;
+}
+
+
+/* 最近记录 */
+.more.data-v-d1474354 {
+
+  font-size: 20rpx;
+
+  color: #53705e;
+}
+.record-row.data-v-d1474354 {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 23rpx 0;
+
+  border-bottom:
+    1rpx solid
+    #edf0ec;
+}
+.record-time.data-v-d1474354,
+.record-name.data-v-d1474354,
+.record-value.data-v-d1474354,
+.record-status.data-v-d1474354 {
+
+  display: block;
+}
+.record-time.data-v-d1474354 {
+
+  font-size: 19rpx;
+
+  color: #929993;
+}
+.record-name.data-v-d1474354 {
+
+  margin-top: 5rpx;
+
+  font-size: 24rpx;
+
+  font-weight: 800;
+
+  color: #34473d;
+}
+.record-right.data-v-d1474354 {
+
+  text-align: right;
+}
+.record-value.data-v-d1474354 {
+
+  font-size: 24rpx;
+
+  font-weight: 900;
+
+  color: #31463a;
+}
+.record-status.data-v-d1474354 {
+
+  margin-top: 5rpx;
+
+  font-size: 19rpx;
+
+  color: #598068;
+}
+
+
+/* 慢病 */
+.disease-card.data-v-d1474354 {
+
+  display: flex;
+
+  align-items: center;
+
+  margin-top: 20rpx;
+
+  padding: 28rpx;
+
+  border-radius: 30rpx;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f6f1e7,
+      #fbfaf6
+    );
+}
+.disease-icon.data-v-d1474354 {
+
+  width: 74rpx;
+  height: 74rpx;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 22rpx;
+
+  background: rgba(255,255,255,.7);
+
+  font-size: 34rpx;
+}
+.disease-content.data-v-d1474354 {
+
+  flex: 1;
+
+  margin-left: 18rpx;
+}
+.disease-label.data-v-d1474354,
+.disease-title.data-v-d1474354,
+.disease-desc.data-v-d1474354 {
+
+  display: block;
+}
+.disease-label.data-v-d1474354 {
+
+  font-size: 19rpx;
+
+  color: #8d8374;
+}
+.disease-title.data-v-d1474354 {
+
+  margin-top: 5rpx;
+
+  font-size: 26rpx;
+
+  font-weight: 900;
+
+  color: #4b4439;
+}
+.disease-desc.data-v-d1474354 {
+
+  margin-top: 5rpx;
+
+  font-size: 20rpx;
+
+  color: #847b6c;
+}
+.disease-link.data-v-d1474354 {
+
+  font-size: 20rpx;
+
+  color: #756c5d;
+}

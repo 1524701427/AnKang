@@ -1,0 +1,1 @@
+<view class="page data-v-6f706900"><view wx:for="{{a}}" wx:for-item="t" wx:key="e" class="card task data-v-6f706900"><text class="title data-v-6f706900">{{t.a}}</text><text class="sub data-v-6f706900">{{t.b}}负责 · {{t.c}}</text><text class="status data-v-6f706900">{{t.d}}</text></view><button class="add data-v-6f706900">+ 新增照护任务</button></view>

@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "page-header": "../../../components/PageHeader",
+    "family-tabbar": "../../../components/FamilyTabbar"
+  }
+}
