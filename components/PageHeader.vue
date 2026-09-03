@@ -1,208 +1,65 @@
 <template>
   <view class="header">
-
     <view class="brand-area">
-
-      <view class="brand-mark">
-        安
+      <SuilinLogo size="sm" />
+      <view class="brand-copy">
+        <text class="brand-name">岁邻</text>
+        <text v-if="subtitle" class="brand-subtitle">{{ subtitle }}</text>
       </view>
-
-      <view>
-
-        <text class="brand-name">
-          安康
-        </text>
-
-        <text
-          v-if="subtitle"
-          class="brand-subtitle"
-        >
-          {{ subtitle }}
-        </text>
-
-      </view>
-
     </view>
-
-
-    <view
-      v-if="action"
-      class="header-action"
-      @tap="$emit('action')"
-    >
-
-      <text class="action-text">
-        {{ action }}
-      </text>
-
-      <text class="action-arrow">
-        →
-      </text>
-
+    <view v-if="action" class="header-action" @tap="$emit('action')">
+      <text class="action-text">{{ action }}</text>
+      <text class="action-arrow">→</text>
     </view>
-
   </view>
 </template>
 
-
 <script>
+import SuilinLogo from '@/components/SuilinLogo.vue'
+
 export default {
-
+  components: { SuilinLogo },
   props: {
-
-    subtitle: {
-      type: String,
-      default: ''
-    },
-
-    action: {
-      type: String,
-      default: ''
-    }
-
+    subtitle: { type: String, default: '' },
+    action: { type: String, default: '' }
   },
-
-  emits: [
-    'action'
-  ]
-
+  emits: ['action']
 }
 </script>
 
-
 <style scoped>
-
 .header {
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
-  min-height: 110rpx;
-
-  padding-top:
-    calc(
-      env(safe-area-inset-top)
-      + 12rpx
-    );
-
+  min-height: 112rpx;
+  padding-top: calc(env(safe-area-inset-top) + 12rpx);
 }
-
-
-.brand-area {
-
-  display: flex;
-
-  align-items: center;
-
-}
-
-
-.brand-mark {
-
-  width: 66rpx;
-  height: 66rpx;
-
-  margin-right: 16rpx;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 21rpx;
-
-  background:
-    linear-gradient(
-      145deg,
-      #315f4c,
-      #447861
-    );
-
-  color: #fff;
-
-  font-size: 28rpx;
-
-  font-weight: 900;
-
-  box-shadow:
-    0 9rpx 22rpx
-    rgba(49,95,76,.16);
-
-}
-
-
+.brand-area { display: flex; align-items: center; min-width: 0; }
+.brand-copy { margin-left: -14rpx; }
 .brand-name {
-
   display: block;
-
-  font-size: 30rpx;
-
+  font-size: 31rpx;
   line-height: 1;
-
   font-weight: 900;
-
-  letter-spacing: 2rpx;
-
-  color: #284136;
-
+  letter-spacing: 3rpx;
+  color: #4b3b33;
 }
-
-
 .brand-subtitle {
-
   display: block;
-
-  margin-top: 7rpx;
-
+  margin-top: 8rpx;
   font-size: 19rpx;
-
-  color: #89928c;
-
+  color: #9a8172;
 }
-
-
 .header-action {
-
   display: flex;
-
   align-items: center;
-
-  padding:
-    12rpx
-    17rpx;
-
-  border-radius: 18rpx;
-
-  background:
-    rgba(255,255,255,.72);
-
-  border:
-    1rpx solid
-    rgba(223,229,223,.9);
-
+  padding: 13rpx 18rpx;
+  border-radius: 22rpx;
+  background: rgba(255,255,255,.86);
+  border: 1rpx solid rgba(244,218,196,.95);
+  box-shadow: 0 8rpx 24rpx rgba(115,75,47,.06);
 }
-
-
-.action-text {
-
-  font-size: 20rpx;
-
-  color: #526b5d;
-
-}
-
-
-.action-arrow {
-
-  margin-left: 7rpx;
-
-  font-size: 21rpx;
-
-  color: #6c7d73;
-
-}
-
+.action-text { font-size: 20rpx; color: #806252; }
+.action-arrow { margin-left: 7rpx; font-size: 21rpx; color: #e5964d; }
 </style>
