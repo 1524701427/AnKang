@@ -23,11 +23,11 @@
     {"path":"pages/family/notifications/index","style":{"navigationBarTitleText":"通知设置"}},
     {"path":"pages/family/privacy/index","style":{"navigationBarTitleText":"隐私与授权"}},
     {"path":"pages/family/help/index","style":{"navigationBarTitleText":"帮助与反馈"}},
-    {"path":"pages/family/about/index","style":{"navigationBarTitleText":"关于安康"}}
+    {"path":"pages/family/about/index","style":{"navigationBarTitleText":"关于岁邻"}}
   ],
   "globalStyle": {
-    "backgroundColor": "#f6f7f3",
+    "backgroundColor": "#fff8f1",
     "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#f6f7f3"
+    "navigationBarBackgroundColor": "#fff8f1"
   }
 }
