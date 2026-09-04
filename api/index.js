@@ -1,5 +1,9 @@
 import { request } from '@/utils/request'
 
+export const authApi = {
+  register: data => request({ url: '/auth/register', method: 'POST', data })
+}
+
 export const elderApi = {
   profile: () => request({ url: '/elder/profile' }),
   today: () => request({ url: '/elder/today' }),
