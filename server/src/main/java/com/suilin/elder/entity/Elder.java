@@ -17,6 +17,7 @@ public class Elder {
     private String healthTagsJson;
     private String bindStatus;
     private String boundClientId;
+    private String boundClientToken;
     private LocalDateTime boundAt;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
