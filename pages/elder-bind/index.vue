@@ -40,6 +40,7 @@ export default{
       try{
         const data=await elderApi.acceptInvite(this.token,getClientId())
         uni.setStorageSync('suilin_bound_elder_id',data.elderId)
+        uni.setStorageSync('suilin_elder_client_token',data.clientToken)
         uni.showToast({title:'绑定成功',icon:'success'})
         setTimeout(()=>uni.reLaunch({url:'/pages/elder/index'}),400)
       }finally{this.accepting=false}
