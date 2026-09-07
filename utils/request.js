@@ -8,6 +8,11 @@ function getToken() {
   return uni.getStorageSync('suilin_token') || ''
 }
 
+function clearFamilySession() {
+  uni.removeStorageSync('suilin_token')
+  uni.removeStorageSync('suilin_user')
+}
+
 export function setApiBaseUrl(url) {
   if (url) uni.setStorageSync('suilin_api_base_url', url.replace(/\/$/, ''))
 }
@@ -28,7 +33,7 @@ export function request(options) {
       header,
       success: (res) => {
         if (res.statusCode === 401) {
-          uni.removeStorageSync('suilin_token')
+          clearFamilySession()
           uni.showToast({ title: '登录已过期，请重新登录', icon: 'none' })
           reject(new Error('UNAUTHORIZED'))
           return
@@ -42,9 +47,10 @@ export function request(options) {
         const body = res.data
         if (body && typeof body.code !== 'undefined') {
           if (body.code !== 0) {
+            if (body.code === 401) clearFamilySession()
             const message = body.message || '请求失败'
             uni.showToast({ title: message, icon: 'none' })
-            reject(new Error(message))
+            reject(new Error(body.code === 401 ? 'UNAUTHORIZED' : message))
             return
           }
           resolve(body.data)
