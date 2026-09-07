@@ -1,619 +1,81 @@
 <template>
-  <view class="page">
+<view class="page">
+  <PageHeader subtitle="我的"/>
 
-    <PageHeader subtitle="我的" />
-
-
-    <view class="profile-card">
-
-      <view class="avatar">
-        敏
-      </view>
-
-      <view class="profile-content">
-
-        <text class="profile-name">
-          小敏
-        </text>
-
-        <text class="profile-role">
-          王秀兰的女儿 · 主要照护人
-        </text>
-
-      </view>
-
-      <text class="edit">
-        编辑
-      </text>
-
+  <view class="profile-card" @tap="go('profile-edit')">
+    <view class="avatar">{{avatarText}}</view>
+    <view class="profile-content">
+      <text class="profile-name">{{user.name || '家人账号'}}</text>
+      <text class="profile-role">家人端账号</text>
     </view>
-
-
-    <!-- 家庭 -->
-    <view class="family-summary">
-
-      <view>
-
-        <text class="summary-label">
-          我的家庭
-        </text>
-
-        <text class="summary-title">
-          正在守护 1 位老人
-        </text>
-
-      </view>
-
-      <view class="family-avatar">
-        王
-      </view>
-
-    </view>
-
-
-    <view class="section-title">
-      家庭管理
-    </view>
-
-
-    <view class="menu-card">
-
-      <view
-        class="menu-row"
-        @tap="goMembers"
-      >
-
-        <view class="menu-icon green">
-          👨‍👩‍👧
-        </view>
-
-        <view class="menu-main">
-
-          <text class="menu-title">
-            家庭成员
-          </text>
-
-          <text class="menu-desc">
-            管理照护人和联系人
-          </text>
-
-        </view>
-
-        <text class="arrow">
-          →
-        </text>
-
-      </view>
-
-
-      <view class="menu-row">
-
-        <view class="menu-icon blue">
-          ⌚
-        </view>
-
-        <view class="menu-main">
-
-          <text class="menu-title">
-            设备管理
-          </text>
-
-          <text class="menu-desc">
-            2台设备在线
-          </text>
-
-        </view>
-
-        <text class="arrow">
-          →
-        </text>
-
-      </view>
-
-
-      <view class="menu-row">
-
-        <view class="menu-icon yellow">
-          🔔
-        </view>
-
-        <view class="menu-main">
-
-          <text class="menu-title">
-            通知设置
-          </text>
-
-          <text class="menu-desc">
-            异常、用药和紧急通知
-          </text>
-
-        </view>
-
-        <text class="arrow">
-          →
-        </text>
-
-      </view>
-
-    </view>
-
-
-    <view class="section-title">
-      更多
-    </view>
-
-
-    <view class="menu-card">
-
-      <view class="menu-row">
-
-        <view class="menu-icon gray">
-          🔐
-        </view>
-
-        <view class="menu-main">
-
-          <text class="menu-title">
-            隐私与授权
-          </text>
-
-        </view>
-
-        <text class="arrow">
-          →
-        </text>
-
-      </view>
-
-
-      <view class="menu-row">
-
-        <view class="menu-icon gray">
-          ❓
-        </view>
-
-        <view class="menu-main">
-
-          <text class="menu-title">
-            帮助与反馈
-          </text>
-
-        </view>
-
-        <text class="arrow">
-          →
-        </text>
-
-      </view>
-
-
-      <view class="menu-row">
-
-        <view class="menu-icon gray">
-          🌿
-        </view>
-
-        <view class="menu-main">
-
-          <text class="menu-title">
-            关于安康
-          </text>
-
-          <text class="menu-desc">
-            让陪伴离父母更近一点
-          </text>
-
-        </view>
-
-        <text class="arrow">
-          →
-        </text>
-
-      </view>
-
-    </view>
-
-
-    <view class="version">
-      安康家庭养老助手 · v1.0
-    </view>
-
-
-    <FamilyTabbar active="mine" />
-
+    <text class="edit">编辑</text>
   </view>
-</template>
 
+  <view class="family-summary">
+    <view>
+      <text class="summary-label">我的长辈</text>
+      <text class="summary-title">{{elderSummary}}</text>
+    </view>
+    <button class="mini-add" @tap="addElder">+ 添加长辈</button>
+  </view>
+
+  <text class="section-title">家庭管理</text>
+  <view class="menu-card">
+    <view class="menu-row" @tap="go('member')"><view class="menu-icon">👨‍👩‍👧</view><view class="menu-main"><text class="menu-title">长辈与家庭</text><text class="menu-desc">查看长辈资料与绑定状态</text></view><text class="arrow">→</text></view>
+    <view class="menu-row" @tap="go('device')"><view class="menu-icon">⌚</view><view class="menu-main"><text class="menu-title">设备管理</text><text class="menu-desc">查看已绑定设备</text></view><text class="arrow">→</text></view>
+    <view class="menu-row" @tap="go('notifications')"><view class="menu-icon">🔔</view><view class="menu-main"><text class="menu-title">通知设置</text><text class="menu-desc">异常、提醒和紧急通知</text></view><text class="arrow">→</text></view>
+  </view>
+
+  <text class="section-title">更多</text>
+  <view class="menu-card">
+    <view class="menu-row" @tap="go('privacy')"><view class="menu-icon">🔐</view><view class="menu-main"><text class="menu-title">隐私与授权</text></view><text class="arrow">→</text></view>
+    <view class="menu-row" @tap="go('help')"><view class="menu-icon">❓</view><view class="menu-main"><text class="menu-title">帮助与反馈</text></view><text class="arrow">→</text></view>
+    <view class="menu-row" @tap="go('about')"><view class="menu-icon brand-mini"><SuilinLogo size="sm"/></view><view class="menu-main"><text class="menu-title">关于岁邻</text><text class="menu-desc">让牵挂更近，让生活更安心</text></view><text class="arrow">→</text></view>
+  </view>
+
+  <button class="logout" @tap="logout">退出登录</button>
+  <text class="version">岁邻 · v1.0</text>
+  <FamilyTabbar active="mine"/>
+</view>
+</template>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import FamilyTabbar from '@/components/FamilyTabbar.vue'
+import SuilinLogo from '@/components/SuilinLogo.vue'
+import { authApi, elderApi } from '@/api/index.js'
 
-export default {
-
-  components: {
-    PageHeader,
-    FamilyTabbar
+export default{
+  components:{PageHeader,FamilyTabbar,SuilinLogo},
+  data(){return{user:{},elders:[]}},
+  computed:{
+    avatarText(){return (this.user.name||'家').slice(-1)},
+    elderSummary(){return this.elders.length ? `已添加 ${this.elders.length} 位长辈` : '还没有添加长辈'}
   },
-
-
-  methods: {
-
-    goMembers() {
-
-      uni.navigateTo({
-        url: '/pages/family/member/index'
-      })
-
+  onShow(){
+    this.user=uni.getStorageSync('suilin_user')||{}
+    this.loadElders()
+  },
+  methods:{
+    async loadElders(){
+      if(!uni.getStorageSync('suilin_token')){this.elders=[];return}
+      try{this.elders=await elderApi.list()||[]}catch(e){this.elders=[]}
+    },
+    addElder(){uni.navigateTo({url:'/pages/family/elder-add/index'})},
+    async logout(){
+      try{await authApi.logout()}catch(e){}
+      uni.removeStorageSync('suilin_token')
+      uni.removeStorageSync('suilin_user')
+      uni.reLaunch({url:'/pages/login/index'})
+    },
+    go(name){
+      const map={member:'/pages/family/member/index',device:'/pages/family/device/index',notifications:'/pages/family/notifications/index',privacy:'/pages/family/privacy/index',help:'/pages/family/help/index',about:'/pages/family/about/index','profile-edit':'/pages/family/profile-edit/index'}
+      uni.navigateTo({url:map[name]})
     }
-
   }
-
 }
 </script>
 
-
 <style scoped>
-
-.page {
-
-  min-height: 100vh;
-
-  padding:
-    34rpx
-    28rpx
-    180rpx;
-
-  background:
-    linear-gradient(
-      180deg,
-      #f8f8f4,
-      #f3f3ee
-    );
-
-}
-
-
-.profile-card {
-
-  display: flex;
-
-  align-items: center;
-
-  margin-top: 46rpx;
-
-  padding: 30rpx;
-
-  border-radius: 32rpx;
-
-  background: #fff;
-
-}
-
-
-.avatar {
-
-  width: 96rpx;
-  height: 96rpx;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 30rpx;
-
-  background:
-    linear-gradient(
-      145deg,
-      #dce9df,
-      #edf3e9
-    );
-
-  font-size: 36rpx;
-
-  font-weight: 900;
-
-  color: #315c48;
-
-}
-
-
-.profile-content {
-
-  flex: 1;
-
-  margin-left: 20rpx;
-
-}
-
-
-.profile-name,
-.profile-role {
-
-  display: block;
-
-}
-
-
-.profile-name {
-
-  font-size: 34rpx;
-
-  font-weight: 900;
-
-  color: #2b4035;
-
-}
-
-
-.profile-role {
-
-  margin-top: 7rpx;
-
-  font-size: 21rpx;
-
-  color: #808a83;
-
-}
-
-
-.edit {
-
-  padding:
-    8rpx
-    15rpx;
-
-  border-radius: 15rpx;
-
-  background: #f1f4ef;
-
-  font-size: 19rpx;
-
-  color: #5b7063;
-
-}
-
-
-/* 家庭 */
-
-.family-summary {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  margin-top: 20rpx;
-
-  padding: 28rpx;
-
-  border-radius: 30rpx;
-
-  background:
-    linear-gradient(
-      135deg,
-      #e9f2e9,
-      #f8faf5
-    );
-
-}
-
-
-.summary-label,
-.summary-title {
-
-  display: block;
-
-}
-
-
-.summary-label {
-
-  font-size: 20rpx;
-
-  color: #7b867f;
-
-}
-
-
-.summary-title {
-
-  margin-top: 6rpx;
-
-  font-size: 28rpx;
-
-  font-weight: 900;
-
-  color: #30473a;
-
-}
-
-
-.family-avatar {
-
-  width: 70rpx;
-  height: 70rpx;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 22rpx;
-
-  background: rgba(255,255,255,.75);
-
-  font-size: 27rpx;
-
-  font-weight: 900;
-
-  color: #456450;
-
-}
-
-
-/* 菜单 */
-
-.section-title {
-
-  margin:
-    38rpx
-    6rpx
-    15rpx;
-
-  font-size: 25rpx;
-
-  font-weight: 900;
-
-  color: #46594e;
-
-}
-
-
-.menu-card {
-
-  padding:
-    0
-    26rpx;
-
-  border-radius: 30rpx;
-
-  background: #fff;
-
-}
-
-
-.menu-row {
-
-  display: flex;
-
-  align-items: center;
-
-  min-height: 116rpx;
-
-  border-bottom:
-    1rpx solid
-    #edf0ec;
-
-}
-
-
-.menu-row:last-child {
-
-  border-bottom: none;
-
-}
-
-
-.menu-icon {
-
-  width: 62rpx;
-  height: 62rpx;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 19rpx;
-
-  font-size: 28rpx;
-
-}
-
-
-.menu-icon.green {
-
-  background: #e7f0e8;
-
-}
-
-
-.menu-icon.blue {
-
-  background: #e8f0f5;
-
-}
-
-
-.menu-icon.yellow {
-
-  background: #f6eddf;
-
-}
-
-
-.menu-icon.gray {
-
-  background: #f1f2ef;
-
-}
-
-
-.menu-main {
-
-  flex: 1;
-
-  margin-left: 18rpx;
-
-}
-
-
-.menu-title,
-.menu-desc {
-
-  display: block;
-
-}
-
-
-.menu-title {
-
-  font-size: 25rpx;
-
-  font-weight: 800;
-
-  color: #34473d;
-
-}
-
-
-.menu-desc {
-
-  margin-top: 6rpx;
-
-  font-size: 19rpx;
-
-  color: #8a928d;
-
-}
-
-
-.arrow {
-
-  font-size: 27rpx;
-
-  color: #959c97;
-
-}
-
-
-.version {
-
-  margin-top: 34rpx;
-
-  text-align: center;
-
-  font-size: 18rpx;
-
-  color: #a0a6a1;
-
-}
-
+.page{min-height:100vh;padding:34rpx 28rpx 180rpx;background:radial-gradient(circle at 100% 0,rgba(255,218,179,.28),transparent 24%),linear-gradient(180deg,#fff9f2,#f8fbf8)}.profile-card,.family-summary,.menu-card{background:rgba(255,255,255,.96);border:1rpx solid #f2e5da;border-radius:30rpx;box-shadow:0 14rpx 42rpx rgba(107,78,58,.06)}.profile-card,.family-summary{display:flex;align-items:center;padding:28rpx;margin-top:24rpx}.avatar{width:82rpx;height:82rpx;display:flex;align-items:center;justify-content:center;border-radius:24rpx;background:linear-gradient(135deg,#ffe1bd,#ffd2a0);color:#8b5b35;font-weight:900}.profile-content{flex:1;margin-left:18rpx}.profile-name,.profile-role,.summary-label,.summary-title,.menu-title,.menu-desc{display:block}.profile-name{font-size:31rpx;font-weight:900;color:#493a33}.profile-role,.summary-label,.menu-desc{margin-top:6rpx;font-size:19rpx;color:#938074}.edit{color:#cf7e40;font-size:20rpx}.family-summary{justify-content:space-between;background:linear-gradient(135deg,#eaf7f3,#fffaf4)}.summary-title{margin-top:5rpx;font-size:27rpx;font-weight:900;color:#4c3d35}.mini-add{margin:0;padding:0 18rpx;height:64rpx;line-height:64rpx;border-radius:18rpx;background:#2fa99a;color:#fff;font-size:22rpx}.section-title{display:block;margin:34rpx 5rpx 14rpx;font-size:25rpx;font-weight:900;color:#5c4a40}.menu-card{padding:0 24rpx}.menu-row{min-height:112rpx;display:flex;align-items:center;border-bottom:1rpx solid #f1ebe6}.menu-row:last-child{border-bottom:none}.menu-icon{width:58rpx;height:58rpx;display:flex;align-items:center;justify-content:center;border-radius:18rpx;background:#fff6ed;overflow:hidden}.brand-mini{background:#f4fbf8}.brand-mini :deep(.suilin-logo){transform:scale(.42);transform-origin:center}.menu-main{flex:1;margin-left:16rpx}.menu-title{font-size:24rpx;font-weight:800;color:#4a3a32}.arrow{color:#d5a27b}.logout{margin-top:32rpx;background:#fff;color:#9b5f51;border:1rpx solid #eed8d0;border-radius:20rpx}.version{display:block;margin-top:24rpx;text-align:center;color:#a99486;font-size:18rpx}
 </style>
