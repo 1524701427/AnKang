@@ -12,7 +12,7 @@ public class SaTokenConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SaInterceptor(handler -> SaRouter.match("/api/**")
-                .notMatch("/api/auth/**", "/api/elder-invites/**")
+                .notMatch("/api/auth/**", "/api/elder-invites/**", "/api/elder-client/**")
                 .check(r -> StpUtil.checkLogin())))
             .addPathPatterns("/**");
     }
