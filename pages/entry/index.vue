@@ -43,7 +43,7 @@ import SuilinLogo from '@/components/SuilinLogo.vue'
 export default {
   components:{SuilinLogo},
   data(){return{hasBoundElder:false}},
-  onShow(){this.hasBoundElder=!!uni.getStorageSync('suilin_elder_client_id') && !!uni.getStorageSync('suilin_bound_elder_id')},
+  onShow(){this.hasBoundElder=!!uni.getStorageSync('suilin_elder_client_token') && !!uni.getStorageSync('suilin_bound_elder_id')},
   methods:{
     goElder(){uni.reLaunch({url:'/pages/elder/index'})},
     goFamily(){
