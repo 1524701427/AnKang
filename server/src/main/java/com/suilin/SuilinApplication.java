@@ -10,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
     "com.suilin.elder.mapper",
     "com.suilin.reminder.mapper",
     "com.suilin.health.mapper",
-    "com.suilin.sos.mapper"
+    "com.suilin.sos.mapper",
+    "com.suilin.device.mapper"
 })
 public class SuilinApplication {
     public static void main(String[] args) {
