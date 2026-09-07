@@ -6,6 +6,11 @@ export const authApi = {
   logout: () => request({ url: '/auth/logout', method: 'POST' })
 }
 
+export const userApi = {
+  me: () => request({ url: '/me' }),
+  update: data => request({ url: '/me', method: 'PUT', data })
+}
+
 export const elderApi = {
   list: () => request({ url: '/elders' }),
   create: data => request({ url: '/elders', method: 'POST', data }),
