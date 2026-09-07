@@ -22,10 +22,12 @@ CREATE TABLE IF NOT EXISTS elders (
   health_tags_json JSON NULL,
   bind_status VARCHAR(20) NOT NULL DEFAULT 'WAITING',
   bound_client_id VARCHAR(128) NULL,
+  bound_client_token VARCHAR(128) NULL,
   bound_at DATETIME NULL,
   created_at DATETIME NOT NULL,
   updated_at DATETIME NOT NULL,
   INDEX idx_elders_creator (creator_user_id),
+  UNIQUE KEY uk_elders_client_token (bound_client_token),
   CONSTRAINT fk_elders_creator FOREIGN KEY (creator_user_id) REFERENCES users(id)
 ) ENGINE=InnoDB;
 
