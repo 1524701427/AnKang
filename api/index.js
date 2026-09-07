@@ -33,3 +33,8 @@ export const healthApi = {
   list: elderId => request({ url: `/elders/${elderId}/health-records` }),
   create: (elderId, data) => request({ url: `/elders/${elderId}/health-records`, method: 'POST', data })
 }
+
+export const deviceApi = {
+  list: elderId => request({ url: `/elders/${elderId}/devices` }),
+  create: (elderId, data) => request({ url: `/elders/${elderId}/devices`, method: 'POST', data })
+}
