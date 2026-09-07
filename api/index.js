@@ -9,12 +9,13 @@ export const authApi = {
 export const elderApi = {
   list: () => request({ url: '/elders' }),
   create: data => request({ url: '/elders', method: 'POST', data }),
+  createInvite: elderId => request({ url: `/elders/${elderId}/invite`, method: 'POST' }),
   invitePreview: token => request({ url: `/elder-invites/${token}` }),
   acceptInvite: (token, clientId) => request({ url: `/elder-invites/${token}/accept`, method: 'POST', data: { clientId } }),
-  clientProfile: clientId => request({ url: `/elder-client/profile?clientId=${encodeURIComponent(clientId)}` }),
-  clientReminders: clientId => request({ url: `/elder-client/reminders?clientId=${encodeURIComponent(clientId)}` }),
-  completeReminder: (clientId, reminderId) => request({ url: `/elder-client/reminders/${reminderId}/complete`, method: 'POST', data: { clientId } }),
-  sos: (clientId, location = {}) => request({ url: '/elder-client/sos', method: 'POST', data: { clientId, ...location } })
+  clientProfile: clientToken => request({ url: `/elder-client/profile?clientToken=${encodeURIComponent(clientToken)}` }),
+  clientReminders: clientToken => request({ url: `/elder-client/reminders?clientToken=${encodeURIComponent(clientToken)}` }),
+  completeReminder: (clientToken, reminderId) => request({ url: `/elder-client/reminders/${reminderId}/complete`, method: 'POST', data: { clientToken } }),
+  sos: (clientToken, location = {}) => request({ url: '/elder-client/sos', method: 'POST', data: { clientToken, ...location } })
 }
 
 export const reminderApi = {
