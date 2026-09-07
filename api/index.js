@@ -12,7 +12,9 @@ export const elderApi = {
   invitePreview: token => request({ url: `/elder-invites/${token}` }),
   acceptInvite: (token, clientId) => request({ url: `/elder-invites/${token}/accept`, method: 'POST', data: { clientId } }),
   clientProfile: clientId => request({ url: `/elder-client/profile?clientId=${encodeURIComponent(clientId)}` }),
-  clientReminders: clientId => request({ url: `/elder-client/reminders?clientId=${encodeURIComponent(clientId)}` })
+  clientReminders: clientId => request({ url: `/elder-client/reminders?clientId=${encodeURIComponent(clientId)}` }),
+  completeReminder: (clientId, reminderId) => request({ url: `/elder-client/reminders/${reminderId}/complete`, method: 'POST', data: { clientId } }),
+  sos: (clientId, location = {}) => request({ url: '/elder-client/sos', method: 'POST', data: { clientId, ...location } })
 }
 
 export const reminderApi = {
