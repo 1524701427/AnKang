@@ -13,7 +13,7 @@
 
     <view v-if="loading" class="empty-card"><text>正在加载...</text></view>
 
-    <view v-else-if="!clientId || !profile" class="empty-card">
+    <view v-else-if="!clientToken || !profile" class="empty-card">
       <text class="empty-title">这台设备还没有绑定</text>
       <text class="empty-desc">请从家人发送的邀请进入，点击一次“接受邀请”即可使用。</text>
     </view>
@@ -65,7 +65,7 @@ import { elderApi } from '@/api/index.js'
 
 export default {
   components:{SuilinLogo},
-  data(){return{clientId:'',profile:null,reminders:[],completedIds:[],loading:true,timer:null}},
+  data(){return{clientToken:'',profile:null,reminders:[],completedIds:[],loading:true,timer:null}},
   computed:{
     dateText(){
       const d=new Date(); const days=['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
@@ -74,23 +74,26 @@ export default {
     currentReminder(){return this.reminders.find(r=>!this.completedIds.includes(r.id)) || null}
   },
   async onShow(){
-    this.clientId=uni.getStorageSync('suilin_elder_client_id')||''
+    this.clientToken=uni.getStorageSync('suilin_elder_client_token')||''
     await this.load()
   },
   methods:{
     async load(){
       this.loading=true
-      if(!this.clientId){this.profile=null;this.reminders=[];this.loading=false;return}
+      if(!this.clientToken){this.profile=null;this.reminders=[];this.loading=false;return}
       try{
-        const [profile,reminders]=await Promise.all([elderApi.clientProfile(this.clientId),elderApi.clientReminders(this.clientId)])
+        const [profile,reminders]=await Promise.all([elderApi.clientProfile(this.clientToken),elderApi.clientReminders(this.clientToken)])
         this.profile=profile
         this.reminders=reminders||[]
-      }catch(e){this.profile=null;this.reminders=[]}
-      finally{this.loading=false}
+      }catch(e){
+        this.profile=null;this.reminders=[]
+        uni.removeStorageSync('suilin_elder_client_token')
+        uni.removeStorageSync('suilin_bound_elder_id')
+      }finally{this.loading=false}
     },
     async finish(reminder){
       if(this.completedIds.includes(reminder.id))return
-      await elderApi.completeReminder(this.clientId,reminder.id)
+      await elderApi.completeReminder(this.clientToken,reminder.id)
       this.completedIds.push(reminder.id)
       uni.showToast({title:'已记录',icon:'success'})
     },
@@ -107,7 +110,7 @@ export default {
     holdSos(){
       this.timer=setTimeout(async()=>{
         try{
-          await elderApi.sos(this.clientId)
+          await elderApi.sos(this.clientToken)
           uni.showModal({title:'紧急求助已发出',content:'系统已经记录求助事件。',showCancel:false})
         }catch(e){}
       },3000)
