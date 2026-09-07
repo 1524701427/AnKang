@@ -35,20 +35,20 @@ public class ElderClientController {
     private final SosEventMapper sosEventMapper;
     private final UserMapper userMapper;
 
-    public record ClientRequest(@NotBlank String clientId) {}
-    public record SosRequest(@NotBlank String clientId, BigDecimal latitude, BigDecimal longitude) {}
+    public record ClientRequest(@NotBlank String clientToken) {}
+    public record SosRequest(@NotBlank String clientToken, BigDecimal latitude, BigDecimal longitude) {}
 
-    private Elder boundElder(String clientId) {
+    private Elder boundElder(String clientToken) {
         Elder elder = elderMapper.selectOne(new LambdaQueryWrapper<Elder>()
-                .eq(Elder::getBoundClientId, clientId)
+                .eq(Elder::getBoundClientToken, clientToken)
                 .eq(Elder::getBindStatus, "BOUND"));
-        if (elder == null) throw new IllegalArgumentException("该设备尚未绑定长辈");
+        if (elder == null) throw new IllegalArgumentException("长辈端绑定凭证无效");
         return elder;
     }
 
     @GetMapping("/profile")
-    public ApiResponse<?> profile(@RequestParam String clientId) {
-        Elder elder = boundElder(clientId);
+    public ApiResponse<?> profile(@RequestParam String clientToken) {
+        Elder elder = boundElder(clientToken);
         User creator = userMapper.selectById(elder.getCreatorUserId());
         Map<String, Object> data = new LinkedHashMap<>();
         data.put("id", elder.getId());
@@ -66,8 +66,8 @@ public class ElderClientController {
     }
 
     @GetMapping("/reminders")
-    public ApiResponse<?> reminders(@RequestParam String clientId) {
-        Elder elder = boundElder(clientId);
+    public ApiResponse<?> reminders(@RequestParam String clientToken) {
+        Elder elder = boundElder(clientToken);
         List<Reminder> list = reminderMapper.selectList(new LambdaQueryWrapper<Reminder>()
                 .eq(Reminder::getElderId, elder.getId())
                 .eq(Reminder::getEnabled, true)
@@ -77,7 +77,7 @@ public class ElderClientController {
 
     @PostMapping("/reminders/{reminderId}/complete")
     public ApiResponse<?> complete(@PathVariable Long reminderId, @Valid @RequestBody ClientRequest req) {
-        Elder elder = boundElder(req.clientId());
+        Elder elder = boundElder(req.clientToken());
         Reminder reminder = reminderMapper.selectById(reminderId);
         if (reminder == null || !elder.getId().equals(reminder.getElderId())) {
             throw new IllegalArgumentException("提醒不存在");
@@ -97,11 +97,11 @@ public class ElderClientController {
 
     @PostMapping("/sos")
     public ApiResponse<?> sos(@Valid @RequestBody SosRequest req) {
-        Elder elder = boundElder(req.clientId());
+        Elder elder = boundElder(req.clientToken());
         SosEvent event = new SosEvent();
         event.setElderId(elder.getId());
         event.setSourceType("ELDER_ACTION");
-        event.setSourceRef(req.clientId());
+        event.setSourceRef(elder.getBoundClientId());
         event.setLatitude(req.latitude());
         event.setLongitude(req.longitude());
         event.setStatus("OPEN");
